@@ -8,7 +8,7 @@
 %                    Available at the MATLAB Central File Exchange: File ID # 278.
 %                    Required by drawAxes.m.
 %% Toolbox content
-% There are 12 functions in the toolbox. 
+% There are 12 functions in the toolbox.
 %
 % 10 of them produce 2D/3D plots of geometric objects:
 %
@@ -33,3 +33,4 @@
 % drawPlane|.
 
 % Copyright (c) 2009, Dr. Vladimir Bondarenko <http://sites.google.com/site/bondsite>
+% Heavily edited in 2014 by Quim Llimona <http://lemonzi.me>

@@ -9,12 +9,12 @@ function hV = drawVector(V, varargin)
 % INPUT:
 % v             - 2(3)-by-n matrix of 2D(3D) dimensional vectors;
 % (optional)
-% markerType    - string defining type of the marker and style of the line 
+% markerType    - string defining type of the marker and style of the line
 %                 e.g., 'rs--' (default 'bo-');
-% labels        - cell array of strings defining vector labels, 
+% labels        - cell array of strings defining vector labels,
 %                 e.g, {'a', 'b'}. Default: none;
-% 'AxesLabels'/  
-%  axLabels     - cell array of strings defining axes names, 
+% 'AxesLabels'/
+%  axLabels     - cell array of strings defining axes names,
 %                 e.g., {'\alpha', '\beta', '\gamma'}.
 %                 Default: {'x', 'y', 'z'}.
 % OUTPUT:
@@ -31,7 +31,7 @@ function hV = drawVector(V, varargin)
 % drawVector(rand(3,4)*2-1, 'sg-', {'1','2','3','4'});
 % drawVector(rand(3,3)*2 -1, 'AxesLabels', {'\alpha', '\beta', '\gamma'});
 % drawVector(rand(3,3)*2 -1, 'go', {'a','b', 'c'});
-% hV = drawVector(rand(2,5)*2-1, 'rs-.', {'1','2','3','4','6'}); 
+% hV = drawVector(rand(2,5)*2-1, 'rs-.', {'1','2','3','4','6'});
 %      set(hV.t(5), 'string', '5');
 %
 % See also: drawPlane, drawSpan, drawLine, drawMesh, drawAxes.
@@ -39,6 +39,7 @@ function hV = drawVector(V, varargin)
 % Copyright (c) 2009, Dr. Vladimir Bondarenko <http://sites.google.com/site/bondsite>
 
 error(nargchk(1,5,nargin));
+
 % Defaults
 mType = 'bo-';
 labels = [];
@@ -57,7 +58,7 @@ if nargin>1
         if ischar(varargin{ii})
             if strcmpi(varargin{ii}, 'AxesLabels')
                 axLabels = varargin{ii+1};
-                k = ii+1;               
+                k = ii+1;
             else
                 mType = varargin{ii};
             end
@@ -68,6 +69,7 @@ if nargin>1
         end
     end
 end
+
 % Parse the mType parameter
 % get the line style
 lStyles = '--|:|-\.|-';
@@ -95,7 +97,7 @@ for ii=1:ncols
     switch d
         case 2
             hV.p(ii)=plot(v(1), v(2), pMarker, 'Color', pColor,...
-                                         'MarkerFaceColor', pColor); 
+                                         'MarkerFaceColor', pColor);
             hold on;
 %             colr = get(hp, 'color');
 %             set(hp, 'MarkerFaceColor', colr);
@@ -113,13 +115,13 @@ for ii=1:ncols
             end
         case 3
             hV.p(ii)=plot3(v(1), v(2), v(3), pMarker, 'Color', pColor,...
-                                                'MarkerFaceColor', pColor); 
+                                                'MarkerFaceColor', pColor);
             hold on;
 %             colr = get(hp, 'color');
 %             set(hp, 'MarkerFaceColor', colr);
             if ~isempty(lStyle)
                 hV.l(ii) = line(v0(1,:), v0(2,:), v0(3,:), 'color', pColor,...
-                                                     'LineStyle', lStyle,...   
+                                                     'LineStyle', lStyle,...
                                                      'LineWidth', 2);
             end
             if ~isempty(labels)
@@ -136,11 +138,10 @@ for ii=1:ncols
     hold on
 end
 % Adjust figure scale
-box(1:2:2*d-1) = -1; % -1-by-1 box 
+box(1:2:2*d-1) = -1; % -1-by-1 box
 box(2:2:2*d) = 1;
 maxLength = sqrt(max(diag(V'*V)));
 box = box*maxLength;
 axis(box); axis square;
 grid on
-drawAxes(d, 'k', axLabels)
 set(gca, 'NextPlot', holdon); % restore the NextPlot property

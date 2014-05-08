@@ -6,11 +6,11 @@ function varargout = drawMesh(vertex, face, varargin)
 %           hMesh = drawMesh(vertex, face, color, 'surf', alpha)
 %
 % INPUT:
-% vertex        - nv-by-2 matrix of [x y] or 
+% vertex        - nv-by-2 matrix of [x y] or
 %                 nv-by-3 matrix of [x y z] vertex coordinates
 % face          - nf-by-? faces matrix
 % (optional)
-% 'wire' or      
+% 'wire' or
 % 'surf'        - plot wire mesh or surface (default) mesh;
 % color         - string, defining the face color (only in 'surf' mode);
 %                 default: 'g' (green color);
@@ -49,17 +49,17 @@ if nargin > 2
     for ii=1:nargin-2
         if ischar(varargin{ii})
            if strcmpi(varargin{ii}, 'surf')||strcmpi(varargin{ii}, 'wire')
-               meshType = varargin{ii}; 
+               meshType = varargin{ii};
            else
-                 fcolor = varargin{ii}; 
+                 fcolor = varargin{ii};
            end;
-        elseif isnumeric(varargin{ii}) 
-            alfa = varargin{ii}; 
+        elseif isnumeric(varargin{ii})
+            alfa = varargin{ii};
         end
     end
 end
 if (alfa > 1)||(alfa < 0), error('The alpha parameter must be in [0, 1].');end;
-            
+
 % Plot the mesh
 switch meshType
     case 'surf'

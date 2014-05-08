@@ -40,9 +40,9 @@ if nargin > 1
         end
     end
 end
-            
+
 % ____________________________
-[dum, ix] = sort(abs(n), 'ascend'); % independent variable is the one with 
+[dum, ix] = sort(abs(n), 'ascend'); % independent variable is the one with
                                     % largest component of the normal vector                                    vector
 dimV = size(n,1); % dim of the input-vector
 if dimV==1 || dimV > 3, error('Wrong dimension of the normal vector');end
@@ -72,12 +72,11 @@ switch dimV
         hs = surf( v(:,:,1), v(:,:,2), v(:,:,3), 'FaceColor', color, ...
                                                  'EdgeColor', color,   ...
                                                  'LineWidth', 2             );
-        set(gca, 'AlimMode', 'manual'); 
+        set(gca, 'AlimMode', 'manual');
         set(hs, 'FaceAlpha', alfa);
 end
 if nargout == 1, varargout{1} = hs; end
-axis square
-drawAxes(dimV, 'k')
-grid on
+% axis square
+% grid on
 set(gca, 'NextPlot', holdon); % restore the NextPlot property
 end
