@@ -3,10 +3,11 @@ function out = defaults(new, def)
 % Copies missing fields in the new struct from defaults
 % New can also be a cell array. In that case,
 %    - if it's empty, defaults are returned
-%    - if it has a single element, it's parsed as struct
+%    - if it has a single element, defaults is called again with that element
 %    - else, the elements are parsed as (field,value) pairs
-% This is useful for parsing varargin without boilerplate
+% This is useful for parsing varargin without any boilerplate
 
+    % Super-fancy parser that eats anything
     if isstruct(new)
         out = new;
     elseif iscell(new)
@@ -14,16 +15,13 @@ function out = defaults(new, def)
             out = def;
             return;
         elseif numel(new) == 1
-            if iscell(new{1})
-                out = new{1};
-            else
-                error('Cell with single element must contain a struct');
-            end
+            out = defaults(new{1}, def);
+            return;
         else
-            out = cell2struct(new(2:2:end)', new(1:2:end));
+            out = cell2struct(new(2:2:end)', new(1:2:end)');
         end
     else
-        error('Input must be a struct or a cell array');
+        error('Input is not properly formatted.');
     end
 
     fields = fieldnames(def);
