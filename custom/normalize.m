@@ -1,4 +1,7 @@
 function out = normalize(x, dim)
+% NORMALIZE(x, dim)
+% Classic x = (x-mean(x)) / std(x)
+% Operated on rows or columns, depending on dim
 
     if isvector(x)
         out = (x-mean(x)) / std(x);

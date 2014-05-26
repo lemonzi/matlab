@@ -1,4 +1,5 @@
 function [pre, stripped] = prefix(varargin)
+% Fins common prefix in a set of strings
 
     if (nargin > 1)
         strings = varargin;
