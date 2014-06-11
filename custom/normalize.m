@@ -1,10 +1,12 @@
-function out = normalize(x, dim)
+function [out, mu, sig] = normalize(x, dim)
 % NORMALIZE(x, dim)
 % Classic x = (x-mean(x)) / std(x)
-% Operated on rows or columns, depending on dim
+% Operates on rows or columns, depending on dim
 
     if isvector(x)
-        out = (x-mean(x)) / std(x);
+        mu  = mean(x);
+        sig = std(x);
+        out = (x-mu) / sig;
         return;
     end
 
@@ -14,8 +16,11 @@ function out = normalize(x, dim)
         x = x';
     end
 
-    out = bsxfun(@minus, x, mean(x, 1));
-    out = bsxfun(@rdivide, out, std(x));
+    mu  = mean(x, 1);
+    sig = std(x);
+
+    out = bsxfun(@minus, x, mu);
+    out = bsxfun(@rdivide, out, sig);
 
     if dimCheck
         out = out';

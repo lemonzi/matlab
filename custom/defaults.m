@@ -27,7 +27,7 @@ function out = defaults(new, def)
     fields = fieldnames(def);
 
     for i = 1:numel(fields)
-        if (~isfield(out, fields{i}))
+        if ~isfield(out, fields{i})
             out.(fields{i}) = def.(fields{i});
         end
     end

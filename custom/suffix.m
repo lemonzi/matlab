@@ -1,5 +1,5 @@
 function [suf, stripped] = suffix(varargin)
-% Fins common suffix in a set of strings
+% Finds common suffix in a set of strings
 
     if (nargin > 1)
         strings = varargin;

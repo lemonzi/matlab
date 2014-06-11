@@ -12,7 +12,7 @@ function smooth_array = polysmooth(array, w_len, overlap, polorder)
     end
 
     % Work with row vector internally
-    iscolvector = size(array, 2) == 1;
+    origsize = size(array);
     array = array(:)';
 
     % Some constants
@@ -58,8 +58,6 @@ function smooth_array = polysmooth(array, w_len, overlap, polorder)
     % Normalize windows
     smooth_array = smooth_array ./ window_sum;
 
-    if iscolvector
-        smooth_array = smooth_array';
-    end
+    smooth_array = reshape(smooth_array, origsize);
 
 end
