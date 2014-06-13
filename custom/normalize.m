@@ -1,6 +1,7 @@
 function [out, mu, sig] = normalize(x, dim)
 % NORMALIZE(x, dim)
 % Classic x = (x-mean(x)) / std(x)
+% Works on both vectors and matrices (not on ND arrays)
 % Operates on rows or columns, depending on dim
 
     if isvector(x)

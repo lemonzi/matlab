@@ -11,7 +11,7 @@ function startup()
     % Add the toobox root, in case anything is thrown there
     addpath(mtpath);
 
-    % Add the misc custom functions
+    % Add the misc custom functions (this is the real magic)
     addpath(fullfile(mtpath, 'custom'));
 
     % Toolbox arrow.m, draws arrows
@@ -23,12 +23,12 @@ function startup()
     % Toolbox drawLA, draws linear algebra stuff
     addpath(fullfile(mtpath, 'drawLA'));
 
-    % Toolbox jsonlab, works with json files
+    % Toolbox jsonlab, deals with json files
     addpath(fullfile(mtpath, 'jsonlab'));
 
     % Compiled libsvm binaries for mac
     if strcmp(mexext,'mexmaci64')
-        addpath(fullfile(mtpath, 'libsvm'));
+        addpath(fullfile(mtpath, 'libsvm', 'maci64'));
     end
 
 end
