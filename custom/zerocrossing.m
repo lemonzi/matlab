@@ -39,7 +39,7 @@ function zc = zerocrossing(data, Nl, Nr)
     % Precompute indicators
     edges = diff(sign(data));
 
-    % Matrixes with windows
+    % Matrices with windows
     Cidx = Nl:length(edges)-Nr;
     Lidx = bsxfun(@plus, (-Nl+1):0, Cidx');
     Ridx = bsxfun(@plus, 1:Nr,      Cidx');
@@ -59,6 +59,8 @@ function zc = zerocrossing(data, Nl, Nr)
     end
 
     % Restore original shape
-    zc = reshape(zc, sz);
+    if (sz(1) < sz(2))
+        zc = zc';
+    end
 
 end
