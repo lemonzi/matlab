@@ -1,7 +1,7 @@
-function fullfigure(fig)
+function fig = fullfigure(fig)
 
     if nargin < 1
-        fig = gcf;
+        fig = figure();
     end
 
     set(fig, 'units', 'normalized', 'outerposition', [0 0 1 1]);

@@ -14,21 +14,32 @@ function startup()
     % Add the misc custom functions (this is the real magic)
     addpath(fullfile(mtpath, 'custom'));
 
-    % Toolbox arrow.m, draws arrows
-    addpath(fullfile(mtpath, 'arrow'));
-
-    % Toolbox fkmeans.m, fast k-means
+    % Toolbox fkmeans, fast k-means
     addpath(fullfile(mtpath, 'fkmeans'));
 
-    % Toolbox drawLA, draws linear algebra stuff
-    addpath(fullfile(mtpath, 'drawLA'));
+    % Toolbox aboxplot, advanced box plots
+    addpath(fullfile(mtpath, 'aboxplot'));
 
     % Toolbox jsonlab, deals with json files
     addpath(fullfile(mtpath, 'jsonlab'));
 
-    % Compiled libsvm binaries for mac
+    % Toolbox cloudPlot
+    addpath(fullfile(mtpath, 'cloudPlot'));
+
+    % Toolbox clinep, plot 3D lines with varying color
+    addpath(fullfile(mtpath, 'clinep'));
+
+    % Toolbox plotShaded, plot semi-transparent band between two lines
+    addpath(fullfile(mtpath, 'plotShaded'));
+
+    % Toolbox export_fig, export figures to eps and pdf
+    addpath(fullfile(mtpath, 'export_fig'));
+
+    % Compiled libsvm binaries for various platforms (in progress)
     if strcmp(mexext,'mexmaci64')
         addpath(fullfile(mtpath, 'libsvm', 'maci64'));
+    elseif strcmp(mexext, 'mexw32')
+        addpath(fullfile(mtpath, 'libsvm', 'win32'));
     end
 
 end
