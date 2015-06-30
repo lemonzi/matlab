@@ -27,7 +27,6 @@ function stream = streamingData(data, labels, index)
         else
             vars = load(data);
         end
-        isIncremental = true;
         incrementalName = labels{1};
         labels = vars.(labels{2});
         npoints = size(vars.(incrementalName), 3);
@@ -52,7 +51,7 @@ function stream = streamingData(data, labels, index)
     stream.getStruct = @getStruct;
     stream.filter    = @filter;
     stream.setField  = @setField;
-    stream.clear     = @clear;
+    stream.clear     = @clearData;
     stream.labels    = labels;
     stream.length    = npoints;
     stream.index     = labelIndex;
@@ -73,8 +72,8 @@ function stream = streamingData(data, labels, index)
         filt = streamingData(access(1:nstreams, ran), labels);
     end
 
-    function clear()
-        clear({'data', 'labelIndex', 'nstreams', 'npoints'});
+    function clearData()
+        clear('data', 'labelIndex', 'nstreams', 'npoints');
     end
 
     function [frames, names] = getMatrix(varargin)

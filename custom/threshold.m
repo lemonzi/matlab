@@ -1,14 +1,19 @@
-function out = threshold(data, varargin)
+function out = threshold(data, thres, varargin)
+% THRESHOLD
+% Applies a threshold to a 1D array and returns a logical.
+% If told to, it makes use of hystheresis to filter it.
+% Usage:
+%	threshold(data, threshold)
+%	threshold(data, threshold, hystheresis)
+%	threshold(data, hystLow, hystHigh
 
-    if length(varargin) == 1
-        out = data > varargin{1};
+    if length(varargin) == 0
+        out = data > thres;
         return;
-    elseif length(varargin) == 2
-        thres = varargin{1};
+    elseif length(varargin) == 1
         lowBound = thres - varargin{2};
         upBound  = thres + varargin{2};
-    elseif length(varargin) == 3
-        thres    = varargin{1};
+    elseif length(varargin) == 2
         lowBound = varargin{2};
         upBound  = varargin{3};
     else
