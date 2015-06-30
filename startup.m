@@ -35,11 +35,17 @@ function startup()
     % Toolbox export_fig, export figures to eps and pdf
     addpath(fullfile(mtpath, 'export_fig'));
 
+    % Toolbox yin, fundamental frequency estimator
+    addpath(fullfile(mtpath, 'yin'));
+
     % Compiled libsvm binaries for various platforms (in progress)
     if strcmp(mexext,'mexmaci64')
         addpath(fullfile(mtpath, 'libsvm', 'maci64'));
     elseif strcmp(mexext, 'mexw32')
         addpath(fullfile(mtpath, 'libsvm', 'win32'));
     end
+    
+    % Nice plots (comment out if you want standard plotting)
+    plotdefaults
 
 end
