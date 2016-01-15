@@ -8,47 +8,49 @@ function startup()
         mtpath = pwd();
     end
 
+    add = @(varargin) addpath(fullfile(mtpath, varargin{:}));
+
     % Add the toobox root, in case anything is thrown there
-    addpath(mtpath);
+    add('');
 
     % Add the misc custom functions (this is the real magic)
-    addpath(fullfile(mtpath, 'custom'));
+    add('custom');
 
     % Toolbox fkmeans, fast k-means
-    addpath(fullfile(mtpath, 'fkmeans'));
+    add('fkmeans');
 
     % Toolbox aboxplot, advanced box plots
-    addpath(fullfile(mtpath, 'aboxplot'));
+    add('aboxplot');
 
     % Toolbox jsonlab, deals with json files
-    addpath(fullfile(mtpath, 'jsonlab'));
+    add('jsonlab');
 
     % Toolbox cloudPlot
-    addpath(fullfile(mtpath, 'cloudPlot'));
+    add('cloudPlot');
 
     % Toolbox clinep, plot 3D lines with varying color
-    addpath(fullfile(mtpath, 'clinep'));
+    add('clinep');
 
     % Toolbox plotShaded, plot semi-transparent band between two lines
-    addpath(fullfile(mtpath, 'plotShaded'));
+    add('plotShaded');
 
     % Toolbox export_fig, export figures to eps and pdf
-    addpath(fullfile(mtpath, 'export_fig'));
+    add('export_fig');
 
     % Toolbox yin, fundamental frequency estimator
-    addpath(fullfile(mtpath, 'yin'));
+    add('yin');
 
     % Toolbox subaxis, better subplot
-    addpath(fullfile(mtpath, 'subaxis'));
+    add('subaxis');
 
     % Toolbox progressbar, better waitbar
-    addpath(fullfile(mtpath, 'progressbar'));
+    add('progressbar');
 
     % Compiled libsvm binaries for various platforms (in progress)
     if strcmp(mexext,'mexmaci64')
-        addpath(fullfile(mtpath, 'libsvm', 'maci64'));
+        add('libsvm', 'maci64');
     elseif strcmp(mexext, 'mexw32')
-        addpath(fullfile(mtpath, 'libsvm', 'win32'));
+        add('libsvm', 'win32');
     end
 
 end

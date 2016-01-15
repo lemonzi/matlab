@@ -1,7 +1,11 @@
-function h = plotShaded(x,y,color,fstr, width)
+function h = plotShaded(x, y, color, fstr, width)
+% Plot a shaded regions with a line at the middle
+% 
 % x: x coordinates
-% y: either just one y vector, or 2xN or 3xN matrix of y-data
-% fstr: format ('r' or 'b--' etc)
+% y: a 1xN, 2xN, or 3xN matrix of y-data
+% color: a valid color spec (3D vector or string)
+% fstr: format ('.-' or '--' etc)
+% width: linewidth of the center plot
 %
 % example
 % x=[-10:.1:10];plotshaded(x,[sin(x.*1.1)+1;sin(x*.9)-1],'r');
