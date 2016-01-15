@@ -10,3 +10,4 @@ function h = drawPoints(X, varargin)
     h = plot3(X(1,:),X(2,:),X(3,:), params{:});
 
 end
+

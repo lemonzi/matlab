@@ -5,3 +5,4 @@ function struct2var(s)
   cellfun(@(n,v) assignin('caller',n,v),fieldnames(s),struct2cell(s));
 
 end
+

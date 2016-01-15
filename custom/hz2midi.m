@@ -6,3 +6,4 @@ function midi = hz2midi(hz)
     midi = 69 + 12 * log(hz/440) / log(2);
 
 end
+

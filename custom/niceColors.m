@@ -53,3 +53,4 @@ function out = niceColors(idx, palette)
     end
 
 end
+

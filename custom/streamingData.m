@@ -124,3 +124,4 @@ function stream = streamingData(data, labels, index)
     end
 
 end
+

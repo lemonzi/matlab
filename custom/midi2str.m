@@ -12,3 +12,4 @@ function [code, octave, pClass] = midi2str(midi)
     code = [noteLookup{pClass} num2str(octave)];
 
 end
+

@@ -4,3 +4,4 @@ function hz = midi2hz(midi)
     hz = 440 * 2 .^ ((midi-69) / 12);
 
 end
+

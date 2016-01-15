@@ -10,3 +10,4 @@ function files = dirPattern(pat, varargin)
     files = {files.name}';
 
 end
+

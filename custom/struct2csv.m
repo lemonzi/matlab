@@ -20,3 +20,4 @@ function struct2csv(filename, data, header)
     fclose(fd);
 
 end
+

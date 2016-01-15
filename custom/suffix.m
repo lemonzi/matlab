@@ -43,3 +43,4 @@ function [suf, stripped] = suffix(varargin)
     end
 
 end
+

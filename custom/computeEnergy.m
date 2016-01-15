@@ -33,3 +33,4 @@ for i = 1:N
     end
     energy(i) = mean(sp);
 end
+

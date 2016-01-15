@@ -1,7 +1,7 @@
 function ang = anglev(v1, v2, units)
 % ANGLEV(v1, v2, units)
 % Computes the angle between vectors v1 and v2
-% Or between each pair of vectors, if v1 and v2 are matrices or n-ices
+% Or between each pair of vectors, if v1 and v2 are matrices or tensors
 % Units can be 'radians' or 'degrees' (defaults to 'radians')
 % By default, the vectors take the first dimension (column vectors)
 
@@ -21,3 +21,4 @@ function ang = anglev(v1, v2, units)
     end
 
 end
+

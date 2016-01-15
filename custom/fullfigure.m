@@ -8,3 +8,4 @@ function fig = fullfigure(fig)
     set(gca,'Position',[0 0 1 1]);
 
 end
+

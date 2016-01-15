@@ -28,3 +28,4 @@ function [out, mu, sig] = normalize(x, dim)
     end
 
 end
+

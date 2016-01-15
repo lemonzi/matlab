@@ -43,3 +43,4 @@ function [pre, stripped] = prefix(varargin)
     end
 
 end
+

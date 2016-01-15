@@ -23,3 +23,4 @@ function out = map(fun, data, varargin)
     end
     
 end
+

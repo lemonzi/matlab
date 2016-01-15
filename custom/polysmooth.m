@@ -61,3 +61,4 @@ function smooth_array = polysmooth(array, w_len, overlap, polorder)
     smooth_array = reshape(smooth_array, origsize);
 
 end
+
