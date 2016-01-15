@@ -17,6 +17,7 @@ function zc = zerocrossing(data, Nl, Nr)
     end
 
     both = false;
+    compare = @ne;
     switch Nr
         case 'left'
             Cl = true;
@@ -25,6 +26,14 @@ function zc = zerocrossing(data, Nl, Nr)
             Cl = false;
             Nr = Nl;
             Nl = 1;
+        case 'up'
+            compare = @gt;
+            Nr = Nl;
+            both = true;
+        case 'down'
+            compare = @lt;
+            Nr = Nl;
+            both = true;
         otherwise
             both = true;
     end
@@ -47,7 +56,7 @@ function zc = zerocrossing(data, Nl, Nr)
     % Vectorized check of signs
     SSL  = all(edges(Lidx) == 0, 2);
     SSR  = all(edges(Ridx) == 0, 2);
-    CSLR =     edges(Cidx) ~= 0;
+    CSLR = compare(edges(Cidx), 0);
 
     % Apply rules
     if both

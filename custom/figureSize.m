@@ -1,4 +1,4 @@
-function h = figureSize(h,height)
+function hh = figureSize(h,height)
 % height by default
 
     if nargin == 1
@@ -23,5 +23,10 @@ function h = figureSize(h,height)
     end
 
     set(h, 'Position', pos);
+    
+    % Only return if requested
+    if nargout > 1
+        hh = h;
+    end
 
 end

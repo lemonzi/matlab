@@ -1,4 +1,7 @@
 function out = niceColors(idx, palette)
+% Returns the RGB color of the specified indexes
+% Palettes available are regular (10-color), light (10-color), and gray
+% (5-color)
 
     if nargin > 0 && ischar(idx)
         palette = idx;
