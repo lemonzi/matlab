@@ -82,6 +82,7 @@ if ~weight
     while any(label ~= last)
         % remove empty clusters
         [~,~,label] = unique(label);
+        label = label(:)';
         % transform label into indicator matrix
         ind = sparse(label,1:n,1,k,n,n);
         % compute centroid of each cluster
@@ -97,6 +98,7 @@ else
     while any(label ~= last)
         % remove empty clusters
         [~,~,label] = unique(label);
+        label = label(:)';
         % transform label into indicator matrix
         ind = sparse(label,1:n,weight,k,n,n);
         % compute centroid of each cluster
@@ -109,7 +111,6 @@ else
     end
     dis = ind*(sum(X.^2,2) - 2*max(distances)');
 end
-label = label';
 
 % Code below this line reused from the file exchange submission K-means++
 % (http://www.mathworks.com/matlabcentral/fileexchange/28901-k-means) in
