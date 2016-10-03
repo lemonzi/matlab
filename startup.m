@@ -47,12 +47,8 @@ function startup()
     add('progressbar');
 
     % Compiled libsvm binaries for various platforms (in progress)
-    if strcmp(mexext,'mexmaci64')
-        add('libsvm', 'maci64');
-    elseif strcmp(mexext, 'mexw32')
-        add('libsvm', 'win32');
-    end
- 
+    add('libsvm');
+
     % Toolbox suptitle, global title for all subplots
     add('suptitle');
 
