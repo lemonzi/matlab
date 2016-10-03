@@ -52,5 +52,8 @@ function startup()
     elseif strcmp(mexext, 'mexw32')
         add('libsvm', 'win32');
     end
+ 
+    % Toolbox suptitle, global title for all subplots
+    add('suptitle');
 
 end
