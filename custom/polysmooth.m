@@ -33,8 +33,8 @@ function smooth_array = polysmooth(array, w_len, overlap, polorder)
         % Fit Nth order polynomial
         ran = w_l(i):w_r(i);
         x = (ran - mean(ran)) / var(ran);
-        pol = polyfit(x, array(ran), polorder);
-        arr_fit = polyval(pol, x);
+        [pol, ~, scale] = polyfit(x, array(ran), polorder);
+        arr_fit = polyval(pol, x, [], scale);
 
         % Store the fit array using a triangular window
         lenlc = w_c(i) - w_l(i) + 1;

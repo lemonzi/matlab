@@ -18,12 +18,12 @@ function out = pluck(s, varargin)
         try
             out = arrayfun(@(x)[x.(varargin{i})], out);
         catch err1
-            if strcmp(err1.identifier,'MATLAB:arrayfun:NotAScalarOutput')
+            if strcmp(err1.identifier, 'MATLAB:arrayfun:NotAScalarOutput')
                 out = arrayfun(@(x)[x.(varargin{i})]', out, 'UniformOutput', false);
                 try
                     out = cell2mat(out);
                 catch err2
-                    if ~strcmp(err2.identifier,'MATLAB:cell2mat:MixedDataTypes')
+                    if ~strcmp(err2.identifier, 'MATLAB:cell2mat:MixedDataTypes')
                         rethrow(err2);
                     end
                 end

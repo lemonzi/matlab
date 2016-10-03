@@ -36,8 +36,8 @@ function deriv = deriv9point(data, sr)
                 deriv(i) = [3 -32 168 -672 0 672 -168 32 -3] * wind * invh;
             else
                 % Non-uniform sample rate, no analytical expression
-                coeff = polyfit(wt, wind, 2);
-                deriv(i) = 2 * coeff(1) * wt(5) + coeff(2);
+                coeff = polyfit(wt - wt(5), wind - wind(5), 2);
+                deriv(i) = coeff(2);
             end
         end
     end
