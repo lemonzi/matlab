@@ -9,7 +9,7 @@ If you set the folder with the toolbox as your default matlab folder, it will be
 
 Or you can just go old-school and add them manually, of course.
 
-So far, the functions in the root folder are made by @lemonzi, and the folders contain various contributions from MathExchange and other places. License files have been kept when possible.
+So far, the functions in the `custom` folder are made by @lemonzi, and the other folders contain various contributions from MathExchange and other places. License files have been kept when possible.
 
 The toolboxes should not be expected to be the same as in the submission; over time, I plan to clean them up where appropriate and maybe change their interfaces. In some cases, I think it would be better to have packages instead of a bunch of functions with a prefix.
 
